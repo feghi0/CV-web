@@ -1,51 +1,51 @@
 import React from 'react';
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/profile.jpg';
 
 const Home = ({ setActiveTab }) => {
   return (
     <section className="section container">
       <div className="home-wrapper">
-        
+
         {/* Left column: Text Content */}
         <div className="home-content">
           <div className="home-badge">
             <span className="home-badge-dot"></span>
             Disponible para Nuevos Proyectos
           </div>
-          
+
           <h1 className="home-title">
             Hola, soy <span>Agustín</span> <br />
             Desarrollador Full Stack
           </h1>
-          
+
           <p className="home-desc">
-            Me especializo en diseñar y construir aplicaciones web modernas, rápidas e interactivas. 
-            Combino lógica sólida de backend con interfaces de usuario pulidas para entregar productos 
+            Me especializo en diseñar y construir aplicaciones web modernas, rápidas e interactivas.
+            Combino lógica sólida de backend con interfaces de usuario pulidas para entregar productos
             digitales que marcan la diferencia.
           </p>
-          
+
           <div className="home-actions">
-            <button 
-              className="btn btn-primary" 
+            <button
+              className="btn btn-primary"
               onClick={() => setActiveTab('projects')}
             >
               Ver Proyectos
             </button>
-            <button 
-              className="btn btn-secondary" 
+            <button
+              className="btn btn-secondary"
               onClick={() => setActiveTab('contact')}
             >
               Contactar
             </button>
           </div>
-          
+
           <div className="home-stats">
             <div className="stat-item">
-              <span className="stat-num">3+</span>
-              <span className="stat-label">Años de Experiencia</span>
+              <span className="stat-num">1+</span>
+              <span className="stat-label">Año de Experiencia</span>
             </div>
             <div className="stat-item">
-              <span className="stat-num">15+</span>
+              <span className="stat-num">2+</span>
               <span className="stat-label">Proyectos Exitosos</span>
             </div>
             <div className="stat-item">
@@ -59,9 +59,9 @@ const Home = ({ setActiveTab }) => {
         <div className="home-image-container">
           <div className="home-image-glow"></div>
           <div className="home-image-frame">
-            <img 
-              src={profileImg} 
-              alt="Agustín - Desarrollador Full Stack" 
+            <img
+              src={profileImg}
+              alt="Agustín - Desarrollador Full Stack"
               className="home-image"
             />
           </div>
