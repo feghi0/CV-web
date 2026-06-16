@@ -15,7 +15,7 @@ const Home = ({ setActiveTab }) => {
 
           <h1 className="home-title">
             Hola, soy <span>Agustín</span> <br />
-            Desarrollador Full Stack
+            Futuro Técnico en Computación
           </h1>
 
           <p className="home-desc">
@@ -61,7 +61,7 @@ const Home = ({ setActiveTab }) => {
           <div className="home-image-frame">
             <img
               src={profileImg}
-              alt="Agustín - Desarrollador Full Stack"
+              alt="Agustín - Futuro Técnico en Computación"
               className="home-image"
             />
           </div>

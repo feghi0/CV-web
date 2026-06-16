@@ -8,12 +8,14 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  
+
   const [status, setStatus] = useState({
     submitted: false,
     success: false,
     message: ''
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,9 +25,9 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic validations
     if (!formData.name || !formData.email || !formData.message) {
       setStatus({
@@ -47,20 +49,66 @@ const Contact = () => {
       return;
     }
 
-    // Simulate sending message
-    setStatus({
-      submitted: true,
-      success: true,
-      message: '¡Gracias! Tu mensaje ha sido enviado con éxito. Me pondré en contacto contigo pronto.'
-    });
+    setIsSubmitting(true);
+    setStatus({ submitted: false, success: false, message: '' });
 
-    // Reset form fields
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
+    if (!formspreeId) {
+      console.warn("Formspree Form ID is missing in .env configuration.");
+      // Fallback simulation for local testing if env is not defined yet
+      setTimeout(() => {
+        setStatus({
+          submitted: true,
+          success: true,
+          message: '¡Simulación exitosa! (Para habilitar el envío real, agrega tu VITE_FORMSPREE_ID en el archivo .env).'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setIsSubmitting(false);
+      }, 1000);
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject || 'Nuevo mensaje de contacto desde el Portafolio',
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setStatus({
+          submitted: true,
+          success: true,
+          message: '¡Gracias! Tu mensaje ha sido enviado con éxito. Me pondré en contacto contigo pronto.'
+        });
+        // Reset form fields
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || 'Ocurrió un error al enviar el mensaje.');
+      }
+    } catch (error) {
+      setStatus({
+        submitted: true,
+        success: false,
+        message: 'Hubo un problema al enviar tu mensaje a través de Formspree. Por favor, inténtalo de nuevo más tarde.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -73,10 +121,10 @@ const Contact = () => {
       </div>
 
       <div className="contact-layout">
-        
+
         {/* Left Side: Contact Information cards */}
         <div className="contact-info-panel">
-          
+
           <div className="contact-card">
             <div className="contact-icon-box">
               <Mail size={22} />
@@ -93,7 +141,7 @@ const Contact = () => {
             </div>
             <div className="contact-card-details">
               <h4>Teléfono</h4>
-              <p>+54 9 11 1234-5678</p>
+              <a href="tel:+5491139064558">+54 9 11 3906-4558</a>
             </div>
           </div>
 
@@ -113,7 +161,7 @@ const Contact = () => {
               <a href="https://github.com/feghi0" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="GitHub">
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/agustinmanteiga/?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -132,8 +180,8 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name" className="form-label">Nombre Completo *</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 id="name"
                 name="name"
                 value={formData.name}
@@ -146,8 +194,8 @@ const Contact = () => {
 
             <div className="form-group">
               <label htmlFor="email" className="form-label">Correo Electrónico *</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 id="email"
                 name="email"
                 value={formData.email}
@@ -160,8 +208,8 @@ const Contact = () => {
 
             <div className="form-group">
               <label htmlFor="subject" className="form-label">Asunto</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 id="subject"
                 name="subject"
                 value={formData.subject}
@@ -173,7 +221,7 @@ const Contact = () => {
 
             <div className="form-group">
               <label htmlFor="message" className="form-label">Mensaje *</label>
-              <textarea 
+              <textarea
                 id="message"
                 name="message"
                 value={formData.message}
@@ -184,8 +232,18 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-primary contact-submit-btn">
-              <Send size={18} /> Enviar Mensaje
+            <button
+              type="submit"
+              className="btn btn-primary contact-submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                'Enviando...'
+              ) : (
+                <>
+                  <Send size={18} /> Enviar Mensaje
+                </>
+              )}
             </button>
           </form>
         </div>

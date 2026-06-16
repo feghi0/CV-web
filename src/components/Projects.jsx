@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Code } from './Icons';
-import project1 from '../assets/project1.png';
-import project2 from '../assets/project2.png';
-import project3 from '../assets/project3.png';
 import zomahub from '../assets/zomahub.png';
 import edubot from '../assets/edubot.png';
 import zomadash from '../assets/zomadash.png';
@@ -30,8 +27,8 @@ const Projects = () => {
       image: edubot,
       desc: 'Sistema inteligente de estudio con asistente virtual por IA, calendario, tablero Kanban de tareas, temporizador Pomodoro personalizable y seguimiento de objetivos diarios.',
       tags: ['React', 'Vite', 'Tailwind CSS', 'OpenAI API', 'LocalStorage'],
-      github: 'https://github.com/feghi0',
-      demo: 'https://example.com'
+      github: 'https://github.com/feghi0/estudio-web',
+      demo: 'https://estudio-web-nine.vercel.app/'
     },
     {
       id: 5,
@@ -43,39 +40,6 @@ const Projects = () => {
       tags: ['HTML5', 'CSS3', 'JavaScript (ES6)', 'ApexCharts', 'LocalStorage'],
       github: 'https://github.com/feghi0/Zoma-DASH',
       demo: 'https://feghi0.github.io/Zoma-DASH/'
-    },
-    {
-      id: 1,
-      title: 'E-Commerce Premium',
-      category: 'web',
-      categoryLabel: 'Desarrollo Web',
-      image: project1,
-      desc: 'Plataforma de comercio electrónico de alto rendimiento con carrito de compras reactivo, pasarela de pago simulada y panel de administración en tiempo real.',
-      tags: ['React', 'Vite', 'Vanilla CSS', 'Context API'],
-      github: 'https://github.com/feghi0',
-      demo: 'https://example.com'
-    },
-    {
-      id: 2,
-      title: 'Dashboard de Métricas SaaS',
-      category: 'web',
-      categoryLabel: 'Desarrollo Web',
-      image: project2,
-      desc: 'Panel de control interactivo para visualización de analíticas financieras y de usuario con gráficos dinámicos animados y exportación de reportes.',
-      tags: ['React', 'ChartJS', 'Express.js', 'MongoDB'],
-      github: 'https://github.com/feghi0',
-      demo: 'https://example.com'
-    },
-    {
-      id: 3,
-      title: 'App Móvil de Tareas',
-      category: 'ui',
-      categoryLabel: 'Diseño UI/UX',
-      image: project3,
-      desc: 'Diseño conceptual y prototipado interactivo de una aplicación móvil para gestión de tareas diarias y proyectos colaborativos en tiempo real.',
-      tags: ['Figma', 'UI/UX Design', 'Design System'],
-      github: 'https://github.com/feghi0',
-      demo: 'https://example.com'
     }
   ];
 

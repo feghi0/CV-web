@@ -30,31 +30,31 @@ const Skills = () => {
 
   const experience = [
     {
-      role: 'Desarrollador Full Stack Freelance',
-      company: 'Proyectos Independientes',
-      period: '2024 - Presente',
-      desc: 'Desarrollo de sitios web a medida para pequeños negocios, landing pages optimizadas para SEO, integraciones de APIs REST y maquetación interactiva con React y CSS moderno.'
-    },
-    {
-      role: 'Desarrollador Frontend Junior',
-      company: 'Estudio de Diseño Digital Tech',
-      period: '2023 - 2024',
-      desc: 'Maquetación responsiva, implementación de interfaces interactivas y mantención de plataformas e-commerce utilizando React y flujos de trabajo con Git.'
+      role: 'Futuro Técnico en Computación',
+      company: 'Zoma Solutions',
+      period: '2026 - Presente',
+      desc: 'Desarrollo conjunto de aplicaciones y sistemas a medida para clientes. Participación activa en todo el ciclo del producto: desde el relevamiento de necesidades y diseño de interfaces hasta el desarrollo de frontend/backend y puesta en producción.'
     }
   ];
 
   const education = [
     {
-      title: 'Tecnicatura en Desarrollo de Software',
-      school: 'Instituto de Tecnología Aplicada',
-      period: '2021 - 2023',
-      desc: 'Formación en algoritmos, bases de datos (SQL y NoSQL), ingeniería de software, arquitectura web y programación orientada a objetos.'
+      title: 'Educación Secundaria Técnica',
+      school: 'Escuela Técnica N° 35 de 18 "Ing. Eduardo Latzina"',
+      period: '2021 - 2026',
+      desc: 'Estudios secundarios de carácter técnico en curso, adquiriendo bases sólidas de resolución de problemas lógicos, tecnología y metodologías estructuradas.'
     },
     {
-      title: 'Especialización en React y Node.js Backend',
-      school: 'Academia Digital (Cursos y Certificaciones)',
-      period: '2022',
-      desc: 'Profundización en desarrollo del lado del cliente con React (Hooks, Context, State Management) y backend con Node/Express y bases de datos NoSQL.'
+      title: 'Estudios de Inglés',
+      school: 'Instituto Cambridge',
+      period: '2015 - 2025',
+      desc: 'Estudios formales de inglés durante una década, desarrollando una sólida capacidad de lectura de documentación técnica, escritura y comunicación oral.'
+    },
+    {
+      title: 'Curso de Inteligencia Artificial',
+      school: 'Cursos / Especializaciones',
+      period: '2024',
+      desc: 'Capacitación teórica y práctica en fundamentos de IA, ingeniería de prompts y su integración en flujos de trabajo de desarrollo de software.'
     }
   ];
 
