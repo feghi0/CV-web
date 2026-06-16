@@ -62,7 +62,6 @@ const Projects = () => {
         </p>
       </div>
 
-      {/* Filter Tabs */}
       <div className="portfolio-filters">
         {filters.map((filter) => (
           <button
@@ -75,7 +74,6 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Projects Grid */}
       <div className="projects-grid">
         {filteredProjects.map((project) => (
           <article key={project.id} className="project-card">

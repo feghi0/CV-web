@@ -5,7 +5,6 @@ const Skills = () => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Trigger progress bar animations after mounting
     const timer = setTimeout(() => {
       setAnimate(true);
     }, 100);
@@ -69,7 +68,6 @@ const Skills = () => {
 
       <div className="skills-layout">
         
-        {/* Left Side: Skills progress bars */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
           
           <div className="skills-card">
@@ -118,10 +116,8 @@ const Skills = () => {
 
         </div>
 
-        {/* Right Side: Experience & Education Timeline */}
         <div>
           
-          {/* Experience Timeline */}
           <div style={{ marginBottom: '3.5rem' }}>
             <h3 className="timeline-section-title" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
               <Briefcase size={24} style={{ color: 'var(--accent)' }} /> Experiencia Laboral
@@ -139,7 +135,6 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Education Timeline */}
           <div>
             <h3 className="timeline-section-title" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
               <GraduationCap size={24} style={{ color: 'var(--accent)' }} /> Educación y Cursos

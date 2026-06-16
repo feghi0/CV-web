@@ -14,7 +14,6 @@ const Navbar = ({ activeTab, setActiveTab, theme, toggleTheme }) => {
   const handleNavLinkClick = (tabId) => {
     setActiveTab(tabId);
     setIsMobileMenuOpen(false);
-    // Smooth scroll back to top when switching pages
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -25,7 +24,6 @@ const Navbar = ({ activeTab, setActiveTab, theme, toggleTheme }) => {
           Portafolio<span className="nav-logo-dot"></span>
         </a>
 
-        {/* Menu Items */}
         <ul className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
             <li key={link.id} className="nav-item">
@@ -39,7 +37,6 @@ const Navbar = ({ activeTab, setActiveTab, theme, toggleTheme }) => {
           ))}
         </ul>
 
-        {/* Theme Toggle & Mobile Menu Buttons */}
         <div className="nav-actions">
           <button 
             className="theme-toggle" 

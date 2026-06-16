@@ -28,7 +28,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validations
     if (!formData.name || !formData.email || !formData.message) {
       setStatus({
         submitted: true,
@@ -38,7 +37,6 @@ const Contact = () => {
       return;
     }
 
-    // Email regex validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setStatus({
@@ -55,7 +53,6 @@ const Contact = () => {
     const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
     if (!formspreeId) {
       console.warn("Formspree Form ID is missing in .env configuration.");
-      // Fallback simulation for local testing if env is not defined yet
       setTimeout(() => {
         setStatus({
           submitted: true,
@@ -89,7 +86,6 @@ const Contact = () => {
           success: true,
           message: '¡Gracias! Tu mensaje ha sido enviado con éxito. Me pondré en contacto contigo pronto.'
         });
-        // Reset form fields
         setFormData({
           name: '',
           email: '',
@@ -122,7 +118,6 @@ const Contact = () => {
 
       <div className="contact-layout">
 
-        {/* Left Side: Contact Information cards */}
         <div className="contact-info-panel">
 
           <div className="contact-card">
@@ -169,7 +164,6 @@ const Contact = () => {
 
         </div>
 
-        {/* Right Side: Form Panel */}
         <div className="contact-form-panel">
           {status.submitted && (
             <div className={`form-alert ${status.success ? 'form-alert-success' : 'form-alert-error'}`}>

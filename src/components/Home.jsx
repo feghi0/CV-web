@@ -6,7 +6,6 @@ const Home = ({ setActiveTab }) => {
     <section className="section container">
       <div className="home-wrapper">
 
-        {/* Left column: Text Content */}
         <div className="home-content">
           <div className="home-badge">
             <span className="home-badge-dot"></span>
@@ -55,7 +54,6 @@ const Home = ({ setActiveTab }) => {
           </div>
         </div>
 
-        {/* Right column: Profile Image with animated glow */}
         <div className="home-image-container">
           <div className="home-image-glow"></div>
           <div className="home-image-frame">
