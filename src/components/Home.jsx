@@ -1,5 +1,6 @@
 import React from 'react';
 import profileImg from '../assets/profile.jpg';
+import { Download } from './Icons';
 
 const Home = ({ setActiveTab }) => {
   return (
@@ -30,6 +31,14 @@ const Home = ({ setActiveTab }) => {
             >
               Ver Proyectos
             </button>
+            <a
+              href="/CV-AgustinManteiga.pdf"
+              download="CV-AgustinManteiga.pdf"
+              className="btn btn-secondary"
+              style={{ textDecoration: 'none' }}
+            >
+              <Download size={18} /> Descargar CV
+            </a>
             <button
               className="btn btn-secondary"
               onClick={() => setActiveTab('contact')}
